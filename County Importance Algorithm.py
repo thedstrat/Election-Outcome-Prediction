@@ -22,33 +22,9 @@ warnings.filterwarnings('ignore')
 
 
 # In[11]:
-
-
-# initialize SQL engine
-get_ipython().run_line_magic('reload_ext', 'sql')
-get_ipython().run_line_magic('sql', 'postgres://capstone21_group4:nm_change.me@pgsql.dsa.lan/capstone21_group4')
-
-engine = create_engine('postgres://capstone21_group4:nm_change.me@pgsql.dsa.lan/capstone21_group4')
-print (engine.table_names())
-
-
-# In[19]:
-
-
-# Read in data
-query = """ SELECT * FROM cleaned_prediction_data_v2_fips """
-df = pd.read_sql(query, engine)
-df = df.rename({'county_fips': 'fips'}, axis=1)
-df.head()
-
-
-# In[20]:
-
-
-# Get state data
-query = """ SELECT * FROM county_state_electoral_votes """
-df2 = pd.read_sql(query, engine)
-
+# Read in the two CSVs and save as df and df2. Note that you may need to specify the CSV directory.
+df = pd.read_csv('feature_dataset.csv')
+df2 = pd.read_csv('state_county_electoral_votes.csv')
 
 # In[21]:
 
