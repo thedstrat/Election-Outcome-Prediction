@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Second Attempt at Different Models
 # Summary:
 # - Create a base logistic regression
 # - Look at feature importance
